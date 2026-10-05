@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Login - Biblioteca{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Login da Biblioteca</h2>
+    {% if erro %}
+        <p class="error">{{ erro }}</p>
+    {% endif %}
+    <form method="POST">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required autocomplete="off">
+        
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Entrar</button>
+    </form>
+    <p style="font-size: 12px; color: #666; margin-top: 15px;">
+        Dicas de teste: <br>
+        - Usuário: <code>admin</code> / Senha: <code>123456</code><br>
+        - Usuário: <code>joao</code> / Senha: <code>senha123</code>
+    </p>
+</div>
+{% endblock %}
+<div class="mt-3 text-center">
+    <small>Ainda não tem conta? <a href="{{ url_for('auth.register') }}">Cadastre-se aqui</a></small>
+</div>
